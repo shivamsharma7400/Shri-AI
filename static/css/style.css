@@ -20,9 +20,18 @@ h2 {
 /* ⚙️ Layout */
 .chat-layout {
   display: flex;
-  gap: 15px;
-  height: calc(100vh - 100px);
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 100dvh; /* ✅ full screen for mobile */
+  overflow: hidden;
+  padding: 8px;
+  box-sizing: border-box;
 }
+
+@media (min-width: 768px) {
+  .chat-layout {
+    flex-direction: row;
+  }
 
 /* 🧩 Sidebar (Tools Section) */
 .tools {
@@ -100,14 +109,16 @@ h2 {
 
 /* 💬 Chat Section */
 .query {
-  flex: 2;
-  background-color: #1a1a1a;
-  padding: 15px;
-  border-radius: 12px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 15px;
+  overflow: hidden;
 }
+
 
 #chat-box {
   background: #121212;
@@ -166,13 +177,17 @@ h2 {
 /* 💬 Input area */
 .input-area {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
   background-color: #121212;
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
-  margin-top: 10px;
+  margin-top: 5px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
+
 
 input {
   flex: 1;
@@ -365,10 +380,16 @@ input:checked + .slider:before {
 .input-area {
   display: flex;
   align-items: flex-end;
+  gap: 10px;
+  background-color: #121212;
   padding: 10px;
-  background: #222;
-  border-top: 1px solid #333;
+  border-radius: 12px;
+  margin-top: 5px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
+
 
 #userInput {
   flex: 1;

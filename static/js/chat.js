@@ -171,3 +171,9 @@ input.addEventListener('keydown', (e) => {
     sendQuery();
   }
 });
+
+input.addEventListener('focus', () => {
+  setTimeout(() => {
+    input.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, 300);
+});
