@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shri AI Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h2>🤖 Personal AI ASSISTANT</h2>
+  </header>
+
+  <!-- Voice Toggle -->
+  <div class="voice-toggle">
+    <label class="switch">
+      <input type="checkbox" id="voiceSwitch">
+      <span class="slider"></span>
+    </label>
+    <span id="voiceLabel">🔇 Speaker OFF</span>
+  </div>
+
+  <main class="chat-layout">
+    <!-- Left Side: Tools / Modes -->
+    <aside class="tools">
+      <div class="pic"></div>
+      <b class="info">Shri AI</b>
+
+      <div class="modals">
+        <div class="box" data-mode="default"><b>DEFAUTLT MODE</b></div>
+        <div class="box" data-mode="study"><b>STUDY MODE</b></div>
+        <div class="box" data-mode="discussion"><b>DISCUSSION MODE</b></div>
+        <div class="box" data-mode="script"><b>SCRIPT WRITING</b></div>
+        <div class="box" data-mode="prompt"><b>PROMPT WRITING</b></div>
+      </div>
+    </aside>
+
+    <!-- Middle: Chat Box -->
+    <section class="query">
+      <div id="chat-box" class="chat-box"></div>
+
+      <div class="input-area">
+        <input id="userInput" placeholder="Type your message...">
+        <button id="sendBtn">➤</button>
+      </div>
+    </section>
+
+    <!-- Right Side: Chat History -->
+    <aside class="history-panel">
+      <h3>🕒 Chat History</h3>
+      <div id="chatHistory"></div>
+    </aside>
+  </main>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
