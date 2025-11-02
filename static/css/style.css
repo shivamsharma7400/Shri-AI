@@ -47,26 +47,6 @@ h2 {
   }
 }
 
-/* 📱 Mobile Layout */
-@media (max-width: 767px) {
-  .chat-layout {
-    flex-direction: column;
-    height: 100dvh;
-  }
-
-  .tools,
-  .history-panel {
-    width: 100%;
-    order: 1;
-  }
-
-  .query {
-    order: 2;
-    flex: 1;
-    height: 70vh;
-  }
-}
-
 /* 🧩 Sidebar (Tools Section) */
 .tools {
   width: 15%;
