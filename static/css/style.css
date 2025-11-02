@@ -38,12 +38,12 @@ h2 {
 .pic {
   background-color: #333;
   border-radius: 50%;
-  width: 60px;
+  width: 70px;
   height: 70px;
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
-  background-image: url(/Static/images/my_image.jpg/);
+  background-image: url(my_image.jpg);
 }
 
 .info {
