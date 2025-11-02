@@ -158,3 +158,16 @@ window.onload = () => {
   renderHistory();
   appendMessage("🦚🦚_Radhe Radhe Dear Friend!_🦚🦚", "bot");
 };
+
+input.addEventListener('input', () => {
+  input.style.height = 'auto';
+  input.style.height = input.scrollHeight + 'px';
+});
+
+// 🔹 Press Enter to send message, Shift+Enter for new line
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendQuery();
+  }
+});

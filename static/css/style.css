@@ -361,3 +361,30 @@ input:checked + .slider:before {
   background: #00cc77;
   transform: scale(1.05);
 }
+
+.input-area {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  background: #222;
+  border-top: 1px solid #333;
+}
+
+#userInput {
+  flex: 1;
+  resize: none;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 16px;
+  max-height: 200px;  /* Max expand height */
+  overflow-y: auto;
+  line-height: 1.4;
+  outline: none;
+}
+
+#userInput::placeholder {
+  color: #888;
+}
