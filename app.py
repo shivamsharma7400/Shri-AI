@@ -39,6 +39,17 @@ modes = {
 # ---------------------------
 # 🔹 Helper Function
 # ---------------------------
+
+LOG_FILE = "chat_log.txt"
+
+def log_chat(user_msg, ai_response):
+    """Save all chats in a log file."""
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]\n")
+        f.write(f"User: {user_msg}\n")
+        f.write(f"AI: {ai_response}\n")
+        f.write("-" * 50 + "\n")
+
 def get_conversation():
     """Return conversation stored in session or create a new one."""
     if "conversation" not in session:
@@ -99,6 +110,11 @@ def ask():
         try:
             res_json = response.json()
             answer = res_json["candidates"][0]["content"]["parts"][0]["text"]
+
+            log_chat(question, answer)
+            conversation.append({"role": "model", "parts": [{"text": answer}]})
+            return jsonify({"answer": answer})
+        
         except Exception:
             answer = "⚠️ Unexpected response format."
     else:
