@@ -26,7 +26,8 @@ app.secret_key = "shri_ai_session_2025"  # for session storage
     ]
   }'<---- url"""
 
-API_KEY = "AIzaSyAuCemZYsdAXxdiTpU37u_Sexs5naSZl8w"
+import os
+API_KEY = os.getenv("API_KEY")
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
 
 # ---------------------------
