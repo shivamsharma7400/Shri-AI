@@ -8,27 +8,10 @@ import requests
 app = Flask(__name__)
 app.secret_key = "shri_ai_session_2025"  # for session storage
 
-"""AIzaSyA8tgduN5__w4tp2rpyXAYl9vwzcR7d7to <----- old API"""
-"""AIzaSyAuCemZYsdAXxdiTpU37u_Sexs5naSZl8w <----- new API"""
-""" curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent" \
-  -H 'Content-Type: application/json' \
-  -H 'X-goog-api-key: AIzaSyAuCemZYsdAXxdiTpU37u_Sexs5naSZl8w' \
-  -X POST \
-  -d '{
-    "contents": [
-      {
-        "parts": [
-          {
-            "text": "Explain how AI works in a few words"
-          }
-        ]
-      }
-    ]
-  }'<---- url"""
 
 import os
-API_KEY = os.getenv("API_KEY")
-API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
+API_KEY = "AIzaSyAuCemZYsdAXxdiTpU37u_Sexs5naSZl8w"
+API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 # ---------------------------
 # 🔹 Default + Modes
