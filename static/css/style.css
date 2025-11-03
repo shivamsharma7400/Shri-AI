@@ -238,7 +238,7 @@ button:hover {
 
 /* ✅ Scrollbar Styling */
 #chat-box::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 #chat-box::-webkit-scrollbar-thumb {
   background: #00ff95;
@@ -435,16 +435,6 @@ input:checked + .slider:before {
   overflow: auto;
 }
 
-/* 📜 Chat Box */
-#chat-box {
-  flex: 1;
-  overflow-y: auto;
-  background: #121212;
-  border-radius: 12px;
-  padding: 15px;
-  scroll-behavior: smooth;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
-}
 
 /* 🧾 Input Section */
 .input-area {
@@ -480,13 +470,4 @@ input, textarea {
 input::placeholder,
 textarea::placeholder {
   color: #888;
-}
-
-/* 🧭 Responsive scrollbar */
-#chat-box::-webkit-scrollbar {
-  width: 6px;
-}
-#chat-box::-webkit-scrollbar-thumb {
-  background: #00ff95;
-  border-radius: 8px;
 }
