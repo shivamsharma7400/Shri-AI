@@ -432,7 +432,7 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* 📜 Chat Box */
