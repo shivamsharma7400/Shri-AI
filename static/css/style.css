@@ -6,7 +6,7 @@ body {
   max-width: 100%;
   margin: 0;
   padding: 10px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 h2 {
@@ -23,7 +23,7 @@ h2 {
   flex-wrap: wrap;
   gap: 10px;
   height: 100dvh; /* ✅ full screen for mobile */
-  overflow: hidden;
+  overflow: auto;
   padding: 8px;
   box-sizing: border-box;
 }
@@ -39,7 +39,7 @@ h2 {
 
   .query {
     flex: 1;
-    height: auto;
+    height: 90%;
   }
 
   .history-panel {
@@ -130,7 +130,8 @@ h2 {
   background-color: #1a1a1a;
   border-radius: 12px;
   padding: 15px;
-  overflow: hidden;
+  overflow: auto;
+  height: 95%;
 }
 
 
@@ -138,7 +139,7 @@ h2 {
   background: #121212;
   border-radius: 12px;
   padding: 20px;
-  height: 90%;
+  height: 100%;
   overflow-y: auto;
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
   scroll-behavior: smooth;
@@ -212,6 +213,7 @@ input {
   color: #fff;
   outline: none;
   height: 100px;
+  min-height: 10%;
 }
 
 input::placeholder {
@@ -394,14 +396,12 @@ input:checked + .slider:before {
 .input-area {
   display: flex;
   align-items: flex-end;
-  gap: 10px;
   background-color: #121212;
   padding: 10px;
   border-radius: 12px;
   margin-top: 5px;
   position: sticky;
   bottom: 0;
-  z-index: 10;
 }
 
 
@@ -433,21 +433,6 @@ input:checked + .slider:before {
   flex-direction: column;
   justify-content: space-between;
   overflow: auto;
-}
-
-
-/* 🧾 Input Section */
-.input-area {
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
-  background-color: #121212;
-  padding: 10px;
-  border-radius: 12px;
-  margin-top: 10px;
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
 }
 
 /* ✏️ Auto-expanding input */
