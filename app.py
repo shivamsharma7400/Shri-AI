@@ -149,6 +149,46 @@ def new_chat():
     session.modified = True
     return jsonify({"status": "new_chat_started"})
 
+
+@app.route("/generate_questions", methods=["POST"])
+def generate_questions():
+    data = request.get_json()
+    topic = data.get("topic")
+    level = data.get("level")
+    mcq = data.get("mcq")
+    vshort = data.get("vshort")
+    shortQ = data.get("shortQ")
+    longQ = data.get("longQ")
+
+    prompt = (
+        f"Generate exam questions on topic '{topic}' for level {level}.\n"
+        f"1. {mcq} multiple-choice questions (MCQ)\n"
+        f"2. {vshort} very short questions\n"
+        f"3. {shortQ} short questions\n"
+        f"4. {longQ} long questions\n\n"
+        f"Only list the questions, numbered properly. Do not include any answers or greetings."
+    )
+
+    payload = {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}]
+    }
+
+    headers = {
+        "Content-Type": "application/json",
+        "X-goog-api-key": API_KEY
+    }
+
+    res = requests.post(API_URL, headers=headers, json=payload)
+    if res.status_code == 200:
+        try:
+            text = res.json()["candidates"][0]["content"]["parts"][0]["text"]
+            return jsonify({"answer": text})
+        except:
+            return jsonify({"answer": "⚠️ Error parsing response."})
+    else:
+        return jsonify({"answer": "❌ API request failed."})
+
+
 # ---------------------------
 # 🔹 Run Server
 # ---------------------------

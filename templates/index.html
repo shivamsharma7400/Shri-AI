@@ -32,7 +32,7 @@
         <div class="box" data-mode="discussion"><b>DISCUSSION <br> MODE</b></div>
         <div class="box" data-mode="script"><b>SCRIPT <br> WRITING</b></div>
         <div class="box" data-mode="prompt"><b>PROMPT <br> WRITING</b></div>
-        <div class="box" data-mode="question"><b>QUESTION<br>GENRATION</b></div>
+        <div class="box" data-mode="questionMode"><b>QUESTION<br>GENRATION</b></div>
       </div>
     </aside>
 
@@ -55,5 +55,37 @@
 
   <!-- JS -->
   <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
+  <!-- Question Generator Popup -->
+<div id="questionModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>Generate Questions</h3>
+    <label>Topic:</label>
+    <input type="text" id="topic" placeholder="Enter topic...">
+
+    <label>Level:</label>
+    <select id="level">
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+    </select>
+
+    <label>MCQ Questions:</label>
+    <input type="number" id="mcq" min="0" placeholder="e.g. 5">
+
+    <label>Very Short Questions:</label>
+    <input type="number" id="vshort" min="0" placeholder="e.g. 5">
+
+    <label>Short Questions:</label>
+    <input type="number" id="short" min="0" placeholder="e.g. 3">
+
+    <label>Long Questions:</label>
+    <input type="number" id="long" min="0" placeholder="e.g. 2">
+
+    <button id="generateBtn">Generate</button>
+  </div>
+</div>
+
 </body>
 </html>

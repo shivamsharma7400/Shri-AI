@@ -177,3 +177,50 @@ input.addEventListener('focus', () => {
     input.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, 300);
 });
+
+
+// ---------- Question Generator Mode ----------
+const questionModeBtn = document.getElementById("questionMode");
+const questionModal = document.getElementById("questionModal");
+const closeBtn = document.querySelector(".close-btn");
+const generateBtn = document.getElementById("generateBtn");
+
+questionModeBtn.onclick = () => {
+  questionModal.style.display = "block";
+};
+closeBtn.onclick = () => {
+  questionModal.style.display = "none";
+};
+window.onclick = (e) => {
+  if (e.target === questionModal) questionModal.style.display = "none";
+};
+
+generateBtn.onclick = async () => {
+  const topic = document.getElementById("topic").value.trim();
+  const level = document.getElementById("level").value;
+  const mcq = document.getElementById("mcq").value;
+  const vshort = document.getElementById("vshort").value;
+  const shortQ = document.getElementById("short").value;
+  const longQ = document.getElementById("long").value;
+
+  if (!topic) {
+    alert("Please enter a topic!");
+    return;
+  }
+
+  questionModal.style.display = "none";
+
+  // Show loading message
+  const chatBox = document.getElementById("chat-box");
+  chatBox.innerHTML += `<div class="message ai">🧠 Generating questions on "${topic}"...</div>`;
+
+  const res = await fetch("/generate_questions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ topic, level, mcq, vshort, shortQ, longQ })
+  });
+  const data = await res.json();
+
+  chatBox.innerHTML += `<div class="message ai">${data.answer}</div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+};
