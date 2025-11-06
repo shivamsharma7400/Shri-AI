@@ -188,6 +188,12 @@ const generateBtn = document.getElementById("generateBtn");
 questionModeBtn.onclick = () => {
   questionModal.style.display = "block";
 };
+
+// Open popup
+questionModeBtn.onclick = () => {
+  questionModal.style.display = "flex"; // ✅ important (was missing)
+};
+
 closeBtn.onclick = () => {
   questionModal.style.display = "none";
 };
