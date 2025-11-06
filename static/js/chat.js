@@ -2,35 +2,9 @@
 const chatBox = document.getElementById("chat-box");
 const input = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
-const voiceSwitch = document.getElementById("voiceSwitch");
-const voiceLabel = document.getElementById("voiceLabel");
 const modeButtons = document.querySelectorAll(".box");
 const chatHistoryDiv = document.getElementById("chatHistory");
 
-// 🧠 VARIABLES
-let voiceMode = false;
-
-// 🎤 VOICE TOGGLE
-voiceSwitch.addEventListener("change", () => {
-  voiceMode = voiceSwitch.checked;
-  voiceLabel.textContent = voiceMode ? "🔊 Speaker ON" : "🔇 Speaker OFF";
-});
-
-// 🗣️ SPEAK TEXT (Auto detects Hindi/English)
-function speakText(text) {
-  if (!voiceMode) return;
-
-  const hasHindi = /[\u0900-\u097F]/.test(text);
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = hasHindi ? "hi-IN" : "en-US";
-  utterance.rate = 1;
-  utterance.pitch = 1;
-  utterance.volume = 1;
-
-  const voices = speechSynthesis.getVoices();
-  utterance.voice = voices.find(v => v.lang === utterance.lang) || voices[0];
-  speechSynthesis.speak(utterance);
-}
 
 // 💬 SEND MESSAGE
 async function sendQuery() {

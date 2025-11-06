@@ -10,22 +10,13 @@
     <h2>🤖 Personal AI ASSISTANT</h2>
   </header>
 
-  <!-- Voice Toggle -->
-  <div class="voice-toggle">
-    <label class="switch">
-      <input type="checkbox" id="voiceSwitch">
-      <span class="slider"></span>
-    </label>
-    <span id="voiceLabel">🔇 Speaker OFF</span>
-  </div>
-
   <main class="chat-layout">
     <!-- Left Side: Tools / Modes -->
     <aside class="tools">
       <div class="pic"></div>
       <b class="info">Shri AI</b>
 
-      <div class="modals">
+      <div class="models">
         <div class="box" data-mode="default"><b>DEFAUTLT <br> MODE</b></div>
         <div class="box" data-mode="study"><b>STUDY <br> MODE</b></div>
         <div class="box" data-mode="answer"><b>EXACT<br>ANSWER</b></div>
@@ -53,14 +44,12 @@
     </aside>
   </main>
 
-  <!-- JS -->
-  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
-
-  <!-- Question Generator Popup -->
+<!-- Question Generator Popup -->
 <div id="questionModal" class="modal">
   <div class="modal-content">
     <span class="close-btn">&times;</span>
     <h3>Generate Questions</h3>
+
     <label>Topic:</label>
     <input type="text" id="topic" placeholder="Enter topic...">
 
@@ -86,6 +75,10 @@
     <button id="generateBtn">Generate</button>
   </div>
 </div>
+
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
 
 </body>
 </html>
