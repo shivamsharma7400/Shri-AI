@@ -4,6 +4,7 @@ body {
   background: #0d0d0d;
   color: #e0e0e0;
   max-width: 100%;
+  max-height: 100%;
   margin: 0;
   padding: 10px;
   overflow: hidden;
@@ -23,9 +24,9 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  height: 90dvh; 
+  height: 90dvh;
   overflow: hidden;
-  padding: 8px;
+  padding: 2px;
   box-sizing: border-box;
   margin: 0px;
 
@@ -52,14 +53,15 @@ h2 {
 
 /* 🧩 Sidebar (Tools Section) */
 .tools {
-  width: 15%;
+  width: 200px;
   background-color: #1a1a1a;
   border-radius: 12px;
   padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow:hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 }
 
 .pic {
@@ -81,9 +83,9 @@ h2 {
   padding-bottom: 5px;
 }
 
-.modals {
-  width: 100%;
-  overflow-y: auto;
+.flexbox {
+  width: 50%;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   display: flex;
   justify-content: center;
@@ -92,14 +94,14 @@ h2 {
 }
 
 /* ✅ Scrollbar Styling */
-.modals::-webkit-scrollbar {
+.flexbox::-webkit-scrollbar {
   width: 8px;
 }
 
 .box {
   background-color: #141414;
   height: 80px;
-  width: 90%;
+  width: 200px;
   border-radius: 10px;
   text-align: center;
   align-content: center;
