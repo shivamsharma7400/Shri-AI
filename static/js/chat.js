@@ -180,7 +180,7 @@ window.onclick = (e) => {
 generateBtn.onclick = async () => {
   const topic = document.getElementById("topic").value.trim();
   const qClass = document.getElementById("qClass").value;
-  const qLang = document.getElementById("qLang").value;
+  const qLang = document.getElementById("qLang").value; 
   const level = document.getElementById("level").value;
   const mcq = document.getElementById("mcq").value;
   const vshort = document.getElementById("vshort").value;
