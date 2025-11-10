@@ -47,7 +47,7 @@ function appendMessage(text, cls) {
 // ✍️ TYPEWRITER EFFECT
 async function typeText(prefix, text, cls) {
   const div = document.createElement("div");
-  div.className = "msg " + cls;
+  div.className = "msg" + cls;
   chatBox.appendChild(div);
 
   for (let i = 0; i < text.length; i++) {
@@ -201,6 +201,6 @@ generateBtn.onclick = async () => {
   });
   const data = await res.json();
 
-  chatBox.innerHTML += `<div class="message ai">${data.answer}</div>`;
+  chatBox.innerHTML += `<div class="msg">${data.answer}</div>`;
   chatBox.scrollTop = chatBox.scrollHeight;
 };

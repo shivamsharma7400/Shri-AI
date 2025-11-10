@@ -177,6 +177,9 @@ h2 {
   text-align: left;
   border-radius: 0px;
   border-bottom-left-radius: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
 }
 
 /* ✨ Typing effect */
@@ -514,3 +517,4 @@ textarea::placeholder {
 .close-btn:hover {
   color: #fff;
 }
+
