@@ -157,17 +157,28 @@ def generate_questions():
     level = data.get("level")
     mcq = data.get("mcq")
     vshort = data.get("vshort")
-    shortQ = data.get("shortQ")
-    longQ = data.get("longQ")
+    shortq = data.get("shortq")
+    longq = data.get("longq")
+    qClass = data.get("qClass")
+    qLang = data.get("qLang")
 
-    prompt = (
-        f"Generate exam questions on topic '{topic}' for level {level}.\n"
-        f"1. {mcq} multiple-choice questions (MCQ)\n"
-        f"2. {vshort} very short questions\n"
-        f"3. {shortQ} short questions\n"
-        f"4. {longQ} long questions\n\n"
-        f"Only list the questions, numbered properly. Do not include any answers or greetings."
-    )
+
+    prompt = f"""
+    Generate exam-style questions only.
+
+    Class: {qClass}
+    Language: {qLang}
+    Topic: {topic}
+    Difficulty Level: {level}
+
+    Format response cleanly with proper line breaks. No extra text.
+
+    1. MCQ Questions ({mcq})
+    2. Very Short Questions ({vshort})
+    3. Short Questions ({shortq})
+    4. Long Questions ({longq})
+    """
+
 
     payload = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}]

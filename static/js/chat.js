@@ -159,6 +159,8 @@ const questionModal = document.getElementById("questionModal");
 const closeBtn = document.querySelector(".close-btn");
 const generateBtn = document.getElementById("generateBtn");
 
+
+
 questionModeBtn.onclick = () => {
   questionModal.style.display = "block";
 };
@@ -177,11 +179,13 @@ window.onclick = (e) => {
 
 generateBtn.onclick = async () => {
   const topic = document.getElementById("topic").value.trim();
+  const qClass = document.getElementById("qClass").value;
+  const qLang = document.getElementById("qLang").value;
   const level = document.getElementById("level").value;
   const mcq = document.getElementById("mcq").value;
   const vshort = document.getElementById("vshort").value;
-  const shortQ = document.getElementById("short").value;
-  const longQ = document.getElementById("long").value;
+  const shortq = document.getElementById("short").value;
+  const longq = document.getElementById("long").value;
 
   if (!topic) {
     alert("Please enter a topic!");
@@ -197,7 +201,7 @@ generateBtn.onclick = async () => {
   const res = await fetch("/generate_questions", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ topic, level, mcq, vshort, shortQ, longQ })
+    body: JSON.stringify({ topic, level, mcq, vshort, shortq, longq, qClass, qLang })
   });
   const data = await res.json();
 
