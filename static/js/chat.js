@@ -70,6 +70,52 @@ function formatAIText(text) {
   return text;
 }
 
+function formatAIText(text) {
+  
+  // TABLE SUPPORT ---------------------
+  // Convert markdown tables to HTML
+  if (text.includes("|")) {
+    const lines = text.trim().split("\n");
+    let htmlTable = "";
+    
+    if (lines[0].includes("|") && lines[1] && lines[1].includes("---")) {
+      htmlTable += "<table class='ai-table'>";
+      const headerCells = lines[0].split("|").map(h => h.trim()).filter(Boolean);
+      htmlTable += "<tr>" + headerCells.map(h => `<th>${h}</th>`).join("") + "</tr>";
+
+      for (let i = 2; i < lines.length; i++) {
+        if (!lines[i].includes("|")) break;
+        const row = lines[i].split("|").map(c => c.trim()).filter(Boolean);
+        htmlTable += "<tr>" + row.map(c => `<td>${c}</td>`).join("") + "</tr>";
+      }
+
+      htmlTable += "</table>";
+      text = htmlTable;
+    }
+  }
+
+  // Bold
+  text = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+
+  // Italic
+  text = text.replace(/\*(.*?)\*/g, '<i>$1</i>');
+
+  // Inline code
+  text = text.replace(/`(.*?)`/g, '<code>$1</code>');
+
+  // Links
+  text = text.replace(
+    /(https?:\/\/[^\s]+)/g,
+    '<a href="$1" target="_blank" class="ai-link">$1</a>'
+  );
+
+  // Line breaks
+  text = text.replace(/\n/g, '<br>');
+
+  return text;
+}
+
+
 // 📦 MODE CHANGE
 modeButtons.forEach(btn => {
   btn.addEventListener("click", async () => {
