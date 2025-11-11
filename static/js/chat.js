@@ -55,6 +55,9 @@ async function typeText(prefix, text, cls) {
     chatBox.scrollTop = chatBox.scrollHeight;
     await new Promise(r => setTimeout(r, 15));
   }
+
+  MathJax.typeset();
+
 }
 
 // 🎨 TEXT FORMATTING
@@ -95,13 +98,13 @@ function formatAIText(text) {
   }
 
   // Bold
-  text = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+  text = text.replace(/(?<!\$)\*(.*?)\*(?!\$)/g, '<i>$1</i>');
 
   // Italic
   text = text.replace(/\*(.*?)\*/g, '<i>$1</i>');
 
   // Inline code
-  text = text.replace(/`(.*?)`/g, '<code>$1</code>');
+  text = text.replace(/`([^$]*?)`/g, '<code>$1</code>');
 
   // Links
   text = text.replace(
