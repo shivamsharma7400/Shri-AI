@@ -156,7 +156,7 @@ input.addEventListener("keypress", e => {
 // INITIAL LOAD
 window.onload = () => {
   renderHistory();
-  appendMessage("🦚🦚_Radhe Radhe Dear Friend!_🦚🦚", "bot");
+  appendMessage("🦚🦚_Radhe Radhe_🦚🦚", "bot");
 };
 
 input.addEventListener('input', () => {
