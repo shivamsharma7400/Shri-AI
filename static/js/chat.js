@@ -62,21 +62,7 @@ async function typeText(prefix, text, cls) {
 
 // 🎨 TEXT FORMATTING
 function formatAIText(text) {
-  text = text.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
-  text = text.replace(/\*(.*?)\*/g, "<i>$1</i>");
-  text = text.replace(/`(.*?)`/g, "<code>$1</code>");
-  text = text.replace(
-    /(https?:\/\/[^\s]+)/g,
-    '<a href="$1" target="_blank">$1</a>'
-  );
-  text = text.replace(/\n/g, "<br>");
-  return text;
-}
 
-function formatAIText(text) {
-  
-  // TABLE SUPPORT ---------------------
-  // Convert markdown tables to HTML
   if (text.includes("|")) {
     const lines = text.trim().split("\n");
     let htmlTable = "";
@@ -97,26 +83,17 @@ function formatAIText(text) {
     }
   }
 
-  // Bold
-  text = text.replace(/(?<!\$)\*(.*?)\*(?!\$)/g, '<i>$1</i>');
-
-  // Italic
-  text = text.replace(/\*(.*?)\*/g, '<i>$1</i>');
-
-  // Inline code
-  text = text.replace(/`([^$]*?)`/g, '<code>$1</code>');
-
-  // Links
+  text = text.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+  text = text.replace(/\*(.*?)\*/g, "<i>$1</i>");
+  text = text.replace(/`(.*?)`/g, "<code>$1</code>");
   text = text.replace(
     /(https?:\/\/[^\s]+)/g,
-    '<a href="$1" target="_blank" class="ai-link">$1</a>'
+    '<a href="$1" target="_blank">$1</a>'
   );
-
-  // Line breaks
-  text = text.replace(/\n/g, '<br>');
-
+  text = text.replace(/\n/g, "<br>");
   return text;
 }
+
 
 
 // 📦 MODE CHANGE
