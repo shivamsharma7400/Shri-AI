@@ -119,7 +119,7 @@ def ask():
         except Exception:
             answer = "⚠️ Unexpected response format."
     else:
-        answer = f"❌ Error {response.status_code}: {response.text}"
+        answer = f"Something went wrong please try again"
 
     # Save to session (conversation + history)
     conversation.append({"role": "model", "parts": [{"text": answer}]})
@@ -197,7 +197,7 @@ def generate_questions():
         except:
             return jsonify({"answer": "⚠️ Error parsing response."})
     else:
-        return jsonify({"answer": "❌ API request failed."})
+        return jsonify({"answer": "Something went wrong! Please Try Again"})
 
 
 # ---------------------------
