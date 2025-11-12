@@ -234,3 +234,18 @@ generateBtn.onclick = async () => {
   chatBox.innerHTML += `<div class="msg">${data.answer}</div>`;
   chatBox.scrollTop = chatBox.scrollHeight;
 };
+
+
+async function renderHistory() {
+  const res = await fetch("/history");
+  const data = await res.json();
+  const history = data.history || [];
+  chatHistoryDiv.innerHTML = "";
+  history.forEach((h, i) => {
+    const div = document.createElement("div");
+    div.className = "history-item";
+    div.innerHTML = `<b>${h.timestamp}</b><br>${h.question.slice(0, 40)}...`;
+    div.onclick = () => loadChatServer(i);
+    chatHistoryDiv.appendChild(div);
+  });
+}
